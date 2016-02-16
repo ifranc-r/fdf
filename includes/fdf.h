@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 15:39:41 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/02/16 16:57:03 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/16 19:08:19 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,13 @@ typedef struct	s_fdf
 	int		mov_y;
 
 }				t_fdf;
+
+typedef struct 	s_all
+{
+	void	*mlx;
+	void	*win;
+}				t_all;
+
 /*
 void  t(t_fdf t)
 {
