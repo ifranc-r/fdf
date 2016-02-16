@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ifranc-r <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 11:58:19 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/02/04 20:29:56 by ifranc-r         ###   ########.fr       */
+/*   Updated: 2016/02/16 19:44:36 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,20 @@ int		mlx_funct_key(int keycode, void *mlx)
 	return (0);
 }
 
-char 	***read_map(int const fd, char *line)
+char 	***read_map(int const fd)
 {
 	int		i;
 	char	***map;
+	char	*line;
 
 	map = (char ***)malloc(sizeof(char **) * 12);
 	map[11] = NULL;	
 	while (get_next_line(fd, &line) == 1)
 	{
-		printf("lol\n");
-		printf("lol2\n");
 		map[i] = ft_strsplit(line, ' ');
-		printf("lol3\n");
 		i++;
 		free(line);
 		line = NULL;
-		printf("lol4\n");
 	}
 	return (map);
 } 
@@ -112,24 +109,23 @@ int		ft_pixel_put(void *mlx, void *win, char ***map) // ax + bx
 
 int		main(int argc, char **argv)
 {
+	t_all	all;
+	int		fd;
+	char	***map;
+	char	**content;
+
 	if (argc > 1)
 	{
-		void	*mlx;
-		void 	*win;
-		int		fd;
-		char	*line;
-		char	***tmp;
 
+		if ((content = parse_file(argv[1])) == NULL)
+			return (EXIT_FAILURE);
 		fd = open(argv[1], O_RDONLY);
-		printf("dfsgsdf\n");
-		tmp = read_map(fd, line);
-		//print_fdf(tmp);
-		printf("hola\n");
-		mlx = mlx_init();
-		win = mlx_new_window(mlx, 1000, 1000, "Yes");
-		ft_pixel_put(mlx, win, tmp);
-		//mlx_pixel_put(mlx, win, 100, 100, 0x00FFFFFF);
-		mlx_key_hook(win, mlx_funct_key, mlx);
-		mlx_loop(mlx);
+		map = read_map(fd);
+		all.mlx = mlx_init();
+		all.win = mlx_new_window(all.mlx, 1000, 1000, "FDF");
+		ft_pixel_put(all.mlx, all.win, map);
+		mlx_key_hook(all.win, mlx_funct_key, all.mlx);
+		mlx_loop(all.mlx);
 	}
+	return (EXIT_SUCCESS);
 }

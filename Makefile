@@ -6,7 +6,7 @@
 #    By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/02 11:11:02 by ifranc-r          #+#    #+#              #
-#    Updated: 2016/02/16 16:57:19 by aramanan         ###   ########.fr        #
+#    Updated: 2016/02/16 20:42:24 by aramanan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ LIB = -L ./libft/ -lft -I ./includes/minilibx_macos/ -lmlx -framework OpenGL\
 
 SRC = ./srcs/main.c \
 	srcs/parser/parse.c \
-	srcs/error/error.c
+	srcs/error/error.c \
+	srcs/mlx/mlx.c
 
 FlAGS = -Wall -Wextra -Werror
 
