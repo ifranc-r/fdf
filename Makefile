@@ -6,11 +6,11 @@
 #    By: ifranc-r <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/02 11:11:02 by ifranc-r          #+#    #+#              #
-#    Updated: 2016/02/03 11:58:10 by ifranc-r         ###   ########.fr        #
+#    Updated: 2016/02/16 15:00:05 by aramanan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fdf
+NAME = fdf_test
 
 HEAD = includes/minilibx_macos/
 
