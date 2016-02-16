@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ifranc-r <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/02 11:11:02 by ifranc-r          #+#    #+#              #
-#    Updated: 2016/02/16 15:00:05 by aramanan         ###   ########.fr        #
+#    Updated: 2016/02/16 16:46:05 by aramanan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fdf_test
+NAME = fdf
 
 HEAD = includes/minilibx_macos/
 
@@ -18,29 +18,29 @@ LIB = -L ./libft/ -lft -./includes/minilibx_macos/ -lmlx -framework OpenGL\
 	  -framework AppKit
 
 SRC = ./srcs/main.c \
-	  			./srcs/get_next_line.c\
-				./scr/ft_get_map.c\
-				./srcs/main.c
+	./srcs/main.c
 
 FlAGS = -Wall -Wextra -Werror
 
 OBJ = $(SRC:.c=.o)
+OBJS = $(notdir $(OBJ))
 
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME):
 	@make -C libft/
-	@gcc $(FLAGS) $(OBJ) -o $(NAME) $(LIB)
-
-%.o: %.c
-	@gcc $(FLAGS) -o $@ -c $< -I $(HEAD) -I ./libft/includes/ -I ./includes/
+	@gcc $(FLAGS) -c $(SRC) -I libft/ -I includes/ -I includes/minilibx_macos/
+	@gcc -o $(NAME) $(OBJS) $(LIB)
 
 clean:
-	@rm -rf $(OBJ)
+	@make clean -C libft/
+	@rm -rf $(OBJS)
 
 fclean: clean
-	@rm -rf $(NAME) ./libft/libft.a
+	@make fclean -C libft/
+	@rm -rf $(NAME)
 
 re: fclean all
+	@make re -C libft/
