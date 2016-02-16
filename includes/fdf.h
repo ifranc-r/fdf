@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ifranc-r <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 15:39:41 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/02/04 15:10:03 by ifranc-r         ###   ########.fr       */
+/*   Updated: 2016/02/16 16:57:03 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <errno.h>
 # include "../libft/libft.h"
 # define BUFF_SIZE 1024
 
@@ -43,7 +44,12 @@ int main()
 	printf("%d", t.mov_x)
 }
 3*/
+
+void		error_file(char *file);
+void		error_dir(char *file);
 int			get_next_line(int const fd, char **line);
 char		***read_map(int const fd, char *line);
+char		**content_file(char *file);
+char		**parse_file(char *file);
 
 #endif

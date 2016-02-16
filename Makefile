@@ -6,7 +6,7 @@
 #    By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/02 11:11:02 by ifranc-r          #+#    #+#              #
-#    Updated: 2016/02/16 16:49:17 by aramanan         ###   ########.fr        #
+#    Updated: 2016/02/16 16:57:19 by aramanan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,12 @@ NAME = fdf
 
 HEAD = includes/minilibx_macos/
 
-LIB = -L ./libft/ -lft -./includes/minilibx_macos/ -lmlx -framework OpenGL\
+LIB = -L ./libft/ -lft -I ./includes/minilibx_macos/ -lmlx -framework OpenGL\
 	  -framework AppKit
 
-SRC = ./srcs/main.c
+SRC = ./srcs/main.c \
+	srcs/parser/parse.c \
+	srcs/error/error.c
 
 FlAGS = -Wall -Wextra -Werror
 
