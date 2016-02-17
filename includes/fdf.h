@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 15:39:41 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/02/16 20:41:33 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/17 20:40:37 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,28 +41,11 @@ typedef struct 	s_coord
 	int		z;
 }				t_coord;
 
-/*
-void  t(t_fdf t)
-{
- 	t->mov_x = 3;
-}
-
-int main()
-{
-	t_fdf t;
-
-	t.mov_x = 7;
-	t.mov_y = 7;
-
-	ft_t(&t);
-	printf("%d", t.mov_x)
-}
-3*/
-
 void		error_file(char *file);
 void		error_dir(char *file);
 int			get_next_line(int const fd, char **line);
 char		***read_map(int const fd);
+char		***map_read(char **content);
 char		**content_file(char *file);
 char		**parse_file(char *file);
 void		init_mlx(t_all *all);
