@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 11:58:19 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/02/16 20:58:31 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/17 20:52:10 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,20 @@ int		mlx_funct_key(int keycode, void *mlx)
 {
 	printf("key event %d\n", keycode);
 	if (keycode == 53)
-		exit ((int)mlx);
+		exit((int)mlx);
 	return (0);
 }
 
-char 	***read_map(int const fd)
+char	***read_map(int const fd)
 {
 	int		i;
 	char	***map;
 	char	*line;
 
-	map = (char ***)malloc(sizeof(char **) * 12);
-	map[11] = NULL;	
-	while (get_next_line(fd, &line) == 1)
+	i = 0;
+	if ((map = (char***)malloc(sizeof(char**) * 12)))
+		map[11] = NULL;
+	while (get_next_line(fd, &line) > 0)
 	{
 		map[i] = ft_strsplit(line, ' ');
 		i++;
@@ -36,9 +37,9 @@ char 	***read_map(int const fd)
 		line = NULL;
 	}
 	return (map);
-} 
+}
 
-int 	ft_strraw_y(char ***tmp) // strlen de y
+int		ft_strraw_y(char ***tmp)
 {
 	int 		x;
 	int 		y;
@@ -61,9 +62,9 @@ int 	ft_strraw_y(char ***tmp) // strlen de y
 
 int		ft_strraw_x(char ***tmp) // strlen de x
 {
-	int 		x;
-	int 		y;
-	t_fdf		color_x; // memorise les valeur differente de 0 
+	int		x;
+	int		y;
+	t_fdf		color_x; // memorise les valeur differente de 0
 
 	x = 0;
 	while (tmp[x])
@@ -88,7 +89,7 @@ int		ft_pixel_put(void *mlx, void *win, char ***map) // ax + bx
 	int		pixel_y;
 
 	y = ft_strraw_x(map);
-	pixel_y = 440;   // bx 
+	pixel_y = 440;   // bx
 	pixel_x = 50;
 	while (y--)
 	{
@@ -116,13 +117,18 @@ int		main(int argc, char **argv)
 
 	if (argc > 1)
 	{
-		fd = open(argv[1], O_RDONLY);
-		map = read_map(fd);
-		all.mlx = mlx_init();
-		all.win = mlx_new_window(all.mlx, 1000, 1000, "FDF");
-		ft_pixel_put(all.mlx, all.win, map);
-		mlx_key_hook(all.win, mlx_funct_key, all.mlx);
-		mlx_loop(all.mlx);
+		if ((content = parse_file(argv[1])) == NULL)
+			return (EXIT_FAILURE);
+		if ((map = map_read(content)))
+			ft_putendl("map rempli");
+		else
+			ft_putendl("retourne NULL");
+		// fd = open(argv[1], O_RDONLY);
+		// map = read_map(fd);
+		// init_mlx(&all);
+		// // ft_pixel_put(all.mlx, all.win, map);
+		// mlx_key_hook(all.win, mlx_funct_key, all.mlx);
+		// mlx_loop(all.mlx);
 	}
 	return (EXIT_SUCCESS);
 }
