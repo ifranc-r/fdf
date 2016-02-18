@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/04 15:37:23 by aramanan          #+#    #+#             */
-/*   Updated: 2016/02/18 14:41:34 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/18 15:02:39 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,21 @@
 char	**parse_file(char *file)
 {
 	char	**content;
+	char	**tmp;
 
 	if ((content = content_file(file)))
 	{
 		if (errno == EISDIR)
+		{
+			tmp = content;
+			while (*tmp)
+			{
+				free(*tmp);
+				++tmp;
+			}
+			free(content);
 			error_dir(file);
+		}
 		else
 			return (content);
 	}

@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 11:58:19 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/02/18 14:30:35 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/18 15:33:41 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int		ft_strraw_x(char ***tmp) // strlen de x
 {
 	int		x;
 	int		y;
-	t_fdf		color_x; // memorise les valeur differente de 0
+	// t_fdf		color_x; // memorise les valeur differente de 0
 
 	x = 0;
 	while (tmp[x])
@@ -110,8 +110,8 @@ int		ft_pixel_put(void *mlx, void *win, char ***map) // ax + bx
 
 int		main(int argc, char **argv)
 {
-	t_all	all;
-	int		fd;
+	// t_all	all;
+	// int		fd;
 	char	***map;
 	char	**content;
 
@@ -122,7 +122,7 @@ int		main(int argc, char **argv)
 		if ((map = map_read(content)))
 		{
 			if ((parse_map_alpha(map)) == 1)
-				ft_putendl("presence caractere alpha");
+				map_del(&map);
 			else
 				ft_putendl("clean");
 		}

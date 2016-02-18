@@ -6,7 +6,7 @@
 #    By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/02 11:11:02 by ifranc-r          #+#    #+#              #
-#    Updated: 2016/02/18 14:40:57 by aramanan         ###   ########.fr        #
+#    Updated: 2016/02/18 15:25:16 by aramanan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRC = ./srcs/main.c \
 	srcs/map/content.c \
 	srcs/mlx/mlx.c
 
-FlAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
 OBJ = $(SRC:.c=.o)
 OBJS = $(notdir $(OBJ))

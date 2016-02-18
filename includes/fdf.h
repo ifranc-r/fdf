@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 15:39:41 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/02/18 14:32:47 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/18 15:20:49 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void		error_dir(char *file);
 int			get_next_line(int const fd, char **line);
 char		***read_map(int const fd);
 char		***map_read(char **content);
+void		map_del(char ****map);
 char		**content_file(char *file);
 char		**parse_file(char *file);
 int			parse_map_alpha(char ***map);

@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 19:53:03 by aramanan          #+#    #+#             */
-/*   Updated: 2016/02/18 14:31:58 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/18 15:32:26 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,24 @@ char				***map_read(char **content)
 		return (tab);
 	}
 	return (NULL);
+}
+
+void				map_del(char ****map)
+{
+	char	***tmp;
+	char	**line;
+
+	tmp = *map;
+	while (*tmp)
+	{
+		line = *tmp;
+		while (*line)
+		{
+			free(*line);
+			line++;
+		}
+		free(*tmp);
+		tmp++;
+	}
+	*map = NULL;
 }

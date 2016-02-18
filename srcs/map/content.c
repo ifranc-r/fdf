@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 14:40:09 by aramanan          #+#    #+#             */
-/*   Updated: 2016/02/18 14:41:32 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/18 14:56:50 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ char	**content_file(char *file)
 	if ((fd = open(file, O_RDONLY)) > 2)
 	{
 		tab = (char**)malloc(sizeof(char*) * (80000 + 1));
+		tab[80000] = NULL;
 		tmp = tab;
 		while ((get_next_line(fd, &(*tmp++))) > 0)
 			;
