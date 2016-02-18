@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 11:58:19 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/02/17 20:52:10 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/18 14:30:35 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,12 @@ int		main(int argc, char **argv)
 		if ((content = parse_file(argv[1])) == NULL)
 			return (EXIT_FAILURE);
 		if ((map = map_read(content)))
-			ft_putendl("map rempli");
+		{
+			if ((parse_map_alpha(map)) == 1)
+				ft_putendl("presence caractere alpha");
+			else
+				ft_putendl("clean");
+		}
 		else
 			ft_putendl("retourne NULL");
 		// fd = open(argv[1], O_RDONLY);
