@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 17:38:01 by aramanan          #+#    #+#             */
-/*   Updated: 2016/02/18 18:18:02 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/18 18:52:51 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,14 @@ t_coord		*init_line_coord(char **line)
 	return (lcoord);
 }
 
-void	del_tab_coord(t_coord ***coord)
+void		affect_coord(int x, int y, int z, t_coord *coord)
+{
+	coord->x = x;
+	coord->y = y;
+	coord->z = z;
+}
+
+void		del_tab_coord(t_coord ***coord)
 {
 	while (*coord)
 	{

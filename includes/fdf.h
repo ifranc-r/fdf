@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 15:39:41 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/02/18 18:18:37 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/18 18:53:13 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ char		***content_read_file(char *file);
 char		**parse_file(char *file);
 int			parse_map_alpha(char ***map);
 void		init_mlx(t_all *all);
+void		affect_coord(int x, int y, int z, t_coord *coord);
 t_coord	**init_tab_coord(char ***map);
 t_coord	*init_line_coord(char **map);
 t_coord	del_tab_coord(t_coord ***coord);
