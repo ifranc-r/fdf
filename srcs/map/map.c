@@ -6,13 +6,14 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 19:53:03 by aramanan          #+#    #+#             */
-/*   Updated: 2016/02/17 20:40:12 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/18 14:31:58 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
 
-static	int		nbline(char **content)
+/* Compte le nombre de ligne dans **content */
+static	int	nbline(char **content)
 {
 	int		i;
 
@@ -25,21 +26,22 @@ static	int		nbline(char **content)
 	return (i);
 }
 
-char			***map_read(char **content)
+char				***map_read(char **content)
 {
 	char	***tab;
-	char	**tmp;
+	char	***tmp;
 	int		line;
 
 	line = nbline(content);
 	if ((tab = (char***)malloc(sizeof(char**) * (line + 1))))
 	{
 		tab[line] = NULL;
+		tmp = tab;
 		while (*content)
 		{
-			*tab = ft_strsplit(*content, ' ');
+			*tmp = ft_strsplit(*content, ' ');
 			++content;
-			++tab;
+			++tmp;
 		}
 		return (tab);
 	}
