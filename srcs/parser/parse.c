@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/04 15:37:23 by aramanan          #+#    #+#             */
-/*   Updated: 2016/02/16 16:56:42 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/18 14:32:30 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,24 @@ char	**parse_file(char *file)
 	else
 		error_file(file);
 	return (NULL);
+}
+
+int		parse_map_alpha(char ***map)
+{
+	char	**line;
+	char	*word;
+
+	while (*map)
+	{
+		line = *map;
+		while (*line)
+		{
+			word = *line;
+			if (ft_isalpha(word[0]) == 1)
+				return (1);
+			++line;
+		}
+		++map;
+	}
+	return (0);
 }
