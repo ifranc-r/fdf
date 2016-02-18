@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 15:39:41 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/02/18 18:53:13 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/18 20:20:38 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct	s_fdf
 	int		mov_y;
 
 }				t_fdf;
-
+// TODO: attention coco
 typedef struct 	s_all
 {
 	void	*mlx;
