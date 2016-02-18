@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 11:58:19 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/02/18 17:04:42 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/18 17:34:34 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ int		main(int argc, char **argv)
 
 	if (argc > 1)
 	{
-		content_read_file(argv[1]);
+		map = content_read_file(argv[1]);
 		// fd = open(argv[1], O_RDONLY);
 		// map = read_map(fd);
 		// init_mlx(&all);
