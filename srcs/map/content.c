@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 14:40:09 by aramanan          #+#    #+#             */
-/*   Updated: 2016/02/18 14:56:50 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/18 16:53:49 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,21 @@ char	**content_file(char *file)
 		close(fd);
 	}
 	return (tab);
+}
+
+char	***content_read_file(char *file)
+{
+	char	**content;
+	char	***map;
+
+	if ((content = parse_file(file)) == NULL)
+		exit(EXIT_FAILURE);
+	if ((map = map_read(content)))
+	{
+		if ((parse_map_alpha(map)) == 1)
+			error_presence_alpha(&map, file);
+		else
+			return (map);
+	}
+	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 11:58:19 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/02/18 15:33:41 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/18 17:04:42 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,22 +112,10 @@ int		main(int argc, char **argv)
 {
 	// t_all	all;
 	// int		fd;
-	char	***map;
-	char	**content;
 
 	if (argc > 1)
 	{
-		if ((content = parse_file(argv[1])) == NULL)
-			return (EXIT_FAILURE);
-		if ((map = map_read(content)))
-		{
-			if ((parse_map_alpha(map)) == 1)
-				map_del(&map);
-			else
-				ft_putendl("clean");
-		}
-		else
-			ft_putendl("retourne NULL");
+		content_read_file(argv[1]);
 		// fd = open(argv[1], O_RDONLY);
 		// map = read_map(fd);
 		// init_mlx(&all);
