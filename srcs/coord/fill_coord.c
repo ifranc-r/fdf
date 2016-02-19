@@ -6,20 +6,20 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/19 13:22:09 by aramanan          #+#    #+#             */
-/*   Updated: 2016/02/19 18:23:12 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/19 21:08:27 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
 
-static		nbline(char ***map)
+static	int	nbline(char ***map)
 {
 	int		nline;
 
 	nline = 0;
 	while (*map)
 	{
-		++nbline;
+		++nline;
 		++map;
 	}
 	return (nline);
@@ -33,7 +33,7 @@ t_coord		***init_tab_coord(char ***map)
 
 	nline = nbline(map);
 	coord = NULL;
-	if ((coord = (t_coord***)malloc(sizeof(t_coord**) * (nbline + 1))))
+	if ((coord = (t_coord***)malloc(sizeof(t_coord**) * (nline + 1))))
 	{
 		i = -1;
 		while (++i < nline)
@@ -43,7 +43,7 @@ t_coord		***init_tab_coord(char ***map)
 			else
 				coord[i] = init_line_coord(*map++, coord[i - 1]);
 		}
-		coord[nbline] = NULL;
+		coord[nline] = NULL;
 	}
 	return (coord);
 }

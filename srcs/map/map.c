@@ -6,14 +6,14 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 19:53:03 by aramanan          #+#    #+#             */
-/*   Updated: 2016/02/18 15:32:26 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/19 18:13:20 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
 
 /* Compte le nombre de ligne dans **content */
-static	int	nbline(char **content)
+static	int			nbline(char **content)
 {
 	int		i;
 

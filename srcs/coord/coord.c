@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 17:38:01 by aramanan          #+#    #+#             */
-/*   Updated: 2016/02/19 18:31:29 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/19 21:23:01 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_coord		*init_coord(int x, int y, int z)
 	return (coord);
 }
 
-static		nbcase(char **line)
+static	int	nbcase(char **line)
 {
 	int		ncase;
 
@@ -41,7 +41,7 @@ static		nbcase(char **line)
 
 t_coord		**init_line_coord(char **line, t_coord **lbcoord)
 {
-	int		nbcase;
+	int		ncase;
 	t_coord	**lcoord;
 	int		i;
 
@@ -54,13 +54,13 @@ t_coord		**init_line_coord(char **line, t_coord **lbcoord)
 		{
 			if (lbcoord == NULL)
 				lcoord[i] = init_coord(50 + (50 * i), 40 + (40 * i), 440 - \
-					(50 * i));
+					(25 * i));
 			else
 				lcoord[i] = init_coord((lbcoord[0]->x + 50) + (50 * i), \
-					(lbcoord[0]->y + 40) + (40 * i), (lbcoord[0]->z + 50) \
-						- (50 * i));
+					(lbcoord[0]->y + 40) + (40 * i), (lbcoord[0]->z + 40) \
+						- (25 * i));
 		}
-		lcoord[nbcase] = NULL;
+		lcoord[ncase] = NULL;
 	}
 	return (lcoord);
 }

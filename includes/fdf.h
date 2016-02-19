@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 15:39:41 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/02/19 18:03:31 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/19 21:41:22 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <errno.h>
 # include "../libft/libft.h"
 # define BUFF_SIZE 1024
+# define VAL_X
 
 typedef struct	s_fdf
 {
@@ -30,9 +31,9 @@ typedef struct	s_fdf
 
 typedef struct 	s_all
 {
-	void		*mlx;
-	void		*win;
-	t_coord	***coord;
+	void			*mlx;
+	void			*win;
+	struct s_coord	***coord;
 }				t_all;
 
 typedef struct 	s_coord
@@ -53,9 +54,9 @@ char		**parse_file(char *file);
 int			parse_map_alpha(char ***map);
 void		init_mlx(t_all *all);
 void		affect_coord(int x, int y, int z, t_coord **coord);
-t_coord	*init_coord(int x, int y, int z);
-t_coord	***init_tab_coord(char ***map);
-t_coord	**init_line_coord(char **map, t_coord **lbcoord);
+t_coord		*init_coord(int x, int y, int z);
+t_coord		***init_tab_coord(char ***map);
+t_coord		**init_line_coord(char **map, t_coord **lbcoord);
 void		del_tab_coord(t_coord ***coord);
 void		fill_tab_coord(char ***map, t_coord ****coord);
 void		fill_line_tab_coord(char **map, t_coord **coord);

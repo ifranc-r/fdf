@@ -6,7 +6,7 @@
 #    By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/02 11:11:02 by ifranc-r          #+#    #+#              #
-#    Updated: 2016/02/18 17:59:10 by aramanan         ###   ########.fr        #
+#    Updated: 2016/02/19 13:52:31 by aramanan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ LIB = -L ./libft/ -lft -I ./includes/minilibx_macos/ -lmlx -framework OpenGL\
 
 SRC = ./srcs/main.c \
 	srcs/coord/coord.c \
+	srcs/coord/fill_coord.c \
 	srcs/parser/parse.c \
 	srcs/error/error.c \
 	srcs/map/map.c \

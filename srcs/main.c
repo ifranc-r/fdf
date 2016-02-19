@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 11:58:19 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/02/18 19:42:12 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/19 21:09:30 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,110 +20,36 @@ int		mlx_funct_key(int keycode, void *mlx)
 	return (0);
 }
 
-char	***read_map(int const fd)
-{
-	int		i;
-	char	***map;
-	char	*line;
-
-	i = 0;
-	if ((map = (char***)malloc(sizeof(char**) * 12)))
-		map[11] = NULL;
-	while (get_next_line(fd, &line) > 0)
-	{
-		map[i] = ft_strsplit(line, ' ');
-		i++;
-		free(line);
-		line = NULL;
-	}
-	return (map);
-}
-
-int		ft_strraw_y(char ***tmp)
-{
-	int 		x;
-	int 		y;
-
-	x = 0;
-	while (tmp[x])
-	{
-		y = 0;
-		while (tmp[x][y])
-		{
-			printf("%s", tmp[x][y]);
-			printf("   ");
-			y++;
-		}
-		printf("\n");
-		x++;
-	}
-	return (y);
-}
-
-int		ft_strraw_x(char ***tmp) // strlen de x
-{
-	int		x;
-	int		y;
-	// t_fdf		color_x; // memorise les valeur differente de 0
-
-	x = 0;
-	while (tmp[x])
-	{
-		y = 0;
-		while (tmp[x][y])
-		{
-			y++;
-		}
-		x++;
-	}
-	return (x);
-}
-
-int		ft_pixel_put(void *mlx, void *win, char ***map) // ax + bx
-{
-	int		x;
-	int		y;
-	int		a;
-	int		b;
-	int		pixel_x;
-	int		pixel_y;
-
-	y = ft_strraw_x(map);
-	pixel_y = 440;   // bx
-	pixel_x = 50;
-	while (y--)
-	{
-		b = pixel_y;
-		a = pixel_x;
-		x = ft_strraw_y(map);
-		while (x--)
-		{
-			mlx_pixel_put(mlx, win, pixel_x, pixel_y, 0x00FFFFFF);
-			pixel_x = pixel_x + 50;
-			pixel_y = pixel_y + 40;
-		}
-		pixel_x = a + 50;
-		pixel_y = b - 40;
-	}
-	return (1);
-}
-
 int		main(int argc, char **argv)
 {
-	// t_all	all;
+	t_all		all;
 	// int		fd;
+	char		***map;
+	int			i;
+	int			j;
 
 	if (argc > 1)
 	{
 		map = content_read_file(argv[1]);
-		// TODO: recuperation des donnees dans le tableau multidimensionnel de structures
-		// FIXME: penser au calcul pdt recuperation
+		all.coord = init_tab_coord(map);
+		init_mlx(&all);
+		i = -1;
+		while (all.coord[++i])
+		{
+			j = -1;
+			// TODO: faire apparaitre les points dans la fenetre mlx
+			while (all.coord[i][++j])
+			{
+				printf("valeur de x: %d\nvaleur de y: %d\nvaleur de z: %d\n\n ", all.coord[i][j]->x, all.coord[i][j]->y, all.coord[i][j]->z);
+				mlx_pixel_put(all.mlx, all.win, all.coord[i][j]->x, all.coord[i][j]->z, 0xFFFFFF);
+			}
+		}
 		// fd = open(argv[1], O_RDONLY);
 		// map = read_map(fd);
 		// init_mlx(&all);
 		// // ft_pixel_put(all.mlx, all.win, map);
-		// mlx_key_hook(all.win, mlx_funct_key, all.mlx);
-		// mlx_loop(all.mlx);
+		mlx_key_hook(all.win, mlx_funct_key, all.mlx);
+		mlx_loop(all.mlx);
 	}
 	return (EXIT_SUCCESS);
 }
