@@ -6,51 +6,63 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 17:38:01 by aramanan          #+#    #+#             */
-/*   Updated: 2016/02/18 18:52:51 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/19 18:31:29 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
 
-t_coord		**init_tab_coord(char ***map)
+t_coord		*init_coord(int x, int y, int z)
 {
-	int		nbline;
-	t_coord	**coord;
+	t_coord		*coord;
 
-	nbline = 0;
-	while (*map)
-	{
-		++nbline;
-		++map;
-	}
 	coord = NULL;
-	if ((coord = (t_coord**)malloc(sizeof(t_coord*) * (nbline + 1))))
-		coord[line] = NULL;
+	if ((coord = (t_coord*)malloc(sizeof(t_coord))))
+	{
+		coord->x = x;
+		coord->y = y;
+		coord->z = z;
+	}
 	return (coord);
 }
 
-t_coord		*init_line_coord(char **line)
+static		nbcase(char **line)
 {
-	int		nbcase;
-	t_coord	*lcoord;
+	int		ncase;
 
-	nbcase = 0;
+	ncase = 0;
 	while (*line)
 	{
-		++nbcase;
+		++ncase;
 		++line;
 	}
-	lcoord = NULL;
-	if ((lcoord = (t_coord*)malloc(sizeof(t_coord) * (nbcase + 1))))
-		lcoord[nbcase] = NULL;
-	return (lcoord);
+	return (ncase);
 }
 
-void		affect_coord(int x, int y, int z, t_coord *coord)
+t_coord		**init_line_coord(char **line, t_coord **lbcoord)
 {
-	coord->x = x;
-	coord->y = y;
-	coord->z = z;
+	int		nbcase;
+	t_coord	**lcoord;
+	int		i;
+
+	ncase = nbcase(line);
+	lcoord = NULL;
+	if ((lcoord = (t_coord**)malloc(sizeof(t_coord*) * (ncase + 1))))
+	{
+		i = -1;
+		while (++i < ncase)
+		{
+			if (lbcoord == NULL)
+				lcoord[i] = init_coord(50 + (50 * i), 40 + (40 * i), 440 - \
+					(50 * i));
+			else
+				lcoord[i] = init_coord((lbcoord[0]->x + 50) + (50 * i), \
+					(lbcoord[0]->y + 40) + (40 * i), (lbcoord[0]->z + 50) \
+						- (50 * i));
+		}
+		lcoord[nbcase] = NULL;
+	}
+	return (lcoord);
 }
 
 void		del_tab_coord(t_coord ***coord)
