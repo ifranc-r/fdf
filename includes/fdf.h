@@ -30,11 +30,19 @@ typedef struct	s_fdf
 
 }				t_fdf;
 
+typedef struct s_line
+{
+	int dx;
+	int dy;
+	int e;
+}				t_line;
+
 typedef struct 	s_all
 {
 	void			*mlx;
 	void			*win;
 	struct s_coord	***coord;
+	struct s_line	line;
 }				t_all;
 
 typedef struct 	s_coord
@@ -45,6 +53,22 @@ typedef struct 	s_coord
 }				t_coord;
 
 void		ft_line2(int x1, int y1, int x2, int y2, t_all all);
+
+void		ft_thirth_quadrant(int x1, int y1, int x2, int y2, t_all all);
+void		ft_fourth_quadrant(int x1, int y1, int x2, int y2, t_all all);
+void		ft_second_quadrant(int x1, int y1, int x2, int y2, t_all all);
+void		ft_first_quadrant(int x1, int y1, int x2, int y2, t_all all);
+
+
+void		ft_sixth_octant(int x1, int y1, int y2, t_all all);
+void		ft_thirth_octant(int x1, int y1, int y2, t_all all);
+void		ft_seventh_octant(int x1, int y1, int y2, t_all all);
+void		ft_second_octant(int x1, int y1, int y2, t_all all);
+void		ft_first_octant(int x1, int y1, int x2, t_all all);
+
+void		ft_init_e_x(t_line line);
+void		ft_init_e_y(t_line line);
+
 void		error_dir(char *file);
 void		error_file(char *file);
 void		error_presence_alpha(char ****map, char *file);
