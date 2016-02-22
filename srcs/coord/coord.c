@@ -6,13 +6,13 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 17:38:01 by aramanan          #+#    #+#             */
-/*   Updated: 2016/02/22 17:17:57 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/22 19:55:45 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
 
-t_coord		*init_coord(int x, int y, int z, int c)
+t_coord		*init_coord(int x, int y, int z, int c, int v)
 {
 	t_coord		*coord;
 
@@ -23,6 +23,7 @@ t_coord		*init_coord(int x, int y, int z, int c)
 		coord->y = y;
 		coord->z = z;
 		coord->color = c;
+		coord->value = v;
 	}
 	return (coord);
 }
@@ -55,11 +56,12 @@ t_coord		**init_line_coord(char **line, t_coord **lbcoord)
 		{
 			if (lbcoord == NULL)
 				lcoord[i] = init_coord(50 + (50 * i), 40 + (40 * i), 440 - \
-					(25 * i), extract_color_coord(line[i]));
+					(25 * i), extract_color_coord(line[i]), \
+						extract_value_coord(line[i]));
 			else
 				lcoord[i] = init_coord((lbcoord[0]->x + 50) + (50 * i), \
 					(lbcoord[0]->y + 40) + (40 * i), (lbcoord[0]->z + 40) \
-						- (25 * i), extract_color_coord(line[i]));
+						- (25 * i), extract_color_coord(line[i]), extract_value_coord(line[i]));
 		}
 		lcoord[ncase] = NULL;
 	}

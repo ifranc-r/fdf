@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/19 13:22:09 by aramanan          #+#    #+#             */
-/*   Updated: 2016/02/22 17:16:44 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/22 19:51:58 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,9 @@ int			extract_color_coord(char *cas)
 	if (value > 0)
 		return (YELLOW);
 	return (GREEN);
+}
+
+int			extract_value_coord(char *cas)
+{
+	return (ft_atoi(cas));
 }
