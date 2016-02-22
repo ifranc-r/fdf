@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 15:39:41 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/02/19 21:41:22 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/20 19:34:27 by ifranc-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <fcntl.h>
 # include <errno.h>
 # include "../libft/libft.h"
+# include <math.h>
 # define BUFF_SIZE 1024
 # define VAL_X
 
@@ -43,6 +44,7 @@ typedef struct 	s_coord
 	int		z;
 }				t_coord;
 
+void		ft_line2(int x1, int y1, int x2, int y2, t_all all);
 void		error_dir(char *file);
 void		error_file(char *file);
 void		error_presence_alpha(char ****map, char *file);
@@ -60,5 +62,7 @@ t_coord		**init_line_coord(char **map, t_coord **lbcoord);
 void		del_tab_coord(t_coord ***coord);
 void		fill_tab_coord(char ***map, t_coord ****coord);
 void		fill_line_tab_coord(char **map, t_coord **coord);
+void		ft_line(int x1, int x2, int y1, int y2, t_all all);
+int		ft_pixel_put(t_all all);
 
 #endif
