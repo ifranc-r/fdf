@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/19 13:22:09 by aramanan          #+#    #+#             */
-/*   Updated: 2016/02/19 21:08:27 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/22 17:16:44 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,16 @@ t_coord		***init_tab_coord(char ***map)
 		coord[nline] = NULL;
 	}
 	return (coord);
+}
+
+int			extract_color_coord(char *cas)
+{
+	int		value;
+
+	value = ft_atoi(cas);
+	if (value == 0)
+		return (PURPLE);
+	if (value > 0)
+		return (YELLOW);
+	return (GREEN);
 }

@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 11:58:19 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/02/19 21:09:30 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/22 17:42:14 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int		mlx_funct_key(int keycode, void *mlx)
 int		main(int argc, char **argv)
 {
 	t_all		all;
-	// int		fd;
 	char		***map;
 	int			i;
 	int			j;
@@ -37,11 +36,10 @@ int		main(int argc, char **argv)
 		while (all.coord[++i])
 		{
 			j = -1;
-			// TODO: faire apparaitre les points dans la fenetre mlx
 			while (all.coord[i][++j])
 			{
 				printf("valeur de x: %d\nvaleur de y: %d\nvaleur de z: %d\n\n ", all.coord[i][j]->x, all.coord[i][j]->y, all.coord[i][j]->z);
-				mlx_pixel_put(all.mlx, all.win, all.coord[i][j]->x, all.coord[i][j]->z, 0xFFFFFF);
+				mlx_pixel_put(all.mlx, all.win, all.coord[i][j]->x, all.coord[i][j]->z, all.coord[i][j]->color);
 			}
 		}
 		// fd = open(argv[1], O_RDONLY);
