@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 11:58:19 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/02/22 17:42:14 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/23 12:41:56 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		main(int argc, char **argv)
 	int			i;
 	int			j;
 
-	if (argc > 1)
+	if (argc != 2)
 	{
 		map = content_read_file(argv[1]);
 		all.coord = init_tab_coord(map);
