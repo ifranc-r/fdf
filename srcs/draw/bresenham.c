@@ -12,81 +12,83 @@
 
 #include "fdf.h"
 
-void		ft_first_quadrant(int x1, int y1, int x2, int y2, t_all all)
+void		ft_first_quadrant(t_all *all)
 {
-	if (all.line.dx >= all.line.dy)
+	if (all->line.dx >= all->line.dy)
 	{
-		ft_init_e_x(all.line);
-		ft_first_octant(x1, y1, x2, all);
+		printf("e\n");
+		ft_init_e_x(all->line);
+		ft_first_octant(all->line.x1, all->line.y1, all->line.x2, all);
 	}
 	else
 	{
-		ft_init_e_y(all.line);
-		ft_second_octant(x1, y1, y2, all);
+		printf("f\n");
+		ft_init_e_y(all->line);
+		ft_second_octant(all->line.x1, all->line.y1, all->line.y2, all);
 	}
 }
-void		ft_fourth_quadrant(int x1, int y1, int x2, int y2, t_all all)
+void		ft_fourth_quadrant(t_all *all)
 {
-	if (all.line.dx >= -all.line.dy)
+	if (all->line.dx >= -all->line.dy)
 	{
-		ft_init_e_x(all.line);
-		while ((x1 = x1 + 1) != x2)
+		ft_init_e_x(all->line);
+		while ((all->line.x1 = all->line.x1 + 1) != all->line.x2)
 		{
-			mlx_pixel_put(all.mlx, all.win, x1, y1, 0xFFFFFFF);
-			if ((all.line.e = all.line.e + all.line.dy) < 0)
+			mlx_pixel_put(all.mlx, all.win, all->line.x1, all->line.y1, 0xFFFFFFF);
+			if ((all->line.e = all->line.e + all->line.dy) < 0)
 			{
-				y1 = y1 - 1;
-				all.line.e = all.line.e + all.line.dx;
+				all->line.y1 = all->line.y1 - 1;
+				all->line.e = all->line.e + all->line.dx;
 			}
 		}
 	}
 	else
 	{
-		ft_init_e_y(all.line);
-		ft_seventh_octant(x1, y1, y2, all);
-	}
-}
-
-void		ft_second_quadrant(int x1, int y1, int x2, int y2, t_all all)
-{
-	if (-all.line.dx >= all.line.dy)
-	{
-		ft_init_e_x(all.line);
-		while ((x1 = x1 - 1) != x2)
-		{
-			mlx_pixel_put(all.mlx, all.win, x1, y1, 0xFFFFFFF);
-			if ((all.line.e = all.line.e + all.line.dy) != 0)
-			{
-				y1 = y1 + 1;
-				all.line.e = all.line.e + all.line.dx;
-			}
-		}
-	}
-	else
-	{
-		ft_init_e_y(all.line);
-		ft_thirth_octant(x1, y1, y2, all);
+		ft_init_e_y(all->line);
+		ft_seventh_octant(all->line.x1, all->line.y1, all->line.y2, all);
 	}
 }
 
-void		ft_thirth_quadrant(int x1, int y1, int x2, int y2, t_all all)
+void		ft_second_quadrant(t_all *all)
 {
-	if (all.line.dx <= all.line.dy)
+	if (-all->line.dx >= all->line.dy)
 	{
-		ft_init_e_x(all.line);
-		while ((x1  = x1 - 1) != x2)
+		ft_init_e_x(all->line);
+		while ((all->line.x1 = all->line.x1 - 1) != all->line.x2)
 		{
-			mlx_pixel_put(all.mlx, all.win, x1, y1, 0xFFFFFFF);
-			if ((all.line.e = all.line.e - all.line.dy) >= 0)
+			mlx_pixel_put(all.mlx, all.win, all->line.x1, all->line.y1, 0xFFFFFFF);
+			if ((all->line.e = all->line.e + all->line.dy) != 0)
 			{
-				y1 = y1 - 1;
-				all.line.e = all.line.e + all.line.dx;
+				all->line.y1 = all->line.y1 + 1;
+				all->line.e = all->line.e + all->line.dx;
 			}
 		}
 	}
 	else
 	{
-		ft_init_e_y(all.line);
-		ft_sixth_octant(x1, y1, y2, all);
+		ft_init_e_y(all->line);
+		ft_thirth_octant(all->line.x1, all->line.y1, all->line.y2, all);
+	}
+}
+
+void		ft_thirth_quadrant(t_all *all)
+{
+	if (all->line.dx <= all->line.dy)
+	{
+		ft_init_e_x(all->line);
+		while ((all->line.x1  = all->line.x1 - 1) != all->line.x2)
+		{
+			mlx_pixel_put(all.mlx, all.win, all->line.x1, all->line.y1, 0xFFFFFFF);
+			if ((all->line.e = all->line.e - all->line.dy) >= 0)
+			{
+				all->line.y1 = all->line.y1 - 1;
+				all->line.e = all->line.e + all->line.dx;
+			}
+		}
+	}
+	else
+	{
+		ft_init_e_y(all->line);
+		ft_sixth_octant(all->line.x1, all->line.y1, all->line.y2, all);
 	}
 }

@@ -32,6 +32,10 @@ typedef struct	s_fdf
 
 typedef struct s_line
 {
+	int y2;
+	int y1;
+	int x2;
+	int x1;
 	int dx;
 	int dy;
 	int e;
@@ -51,13 +55,15 @@ typedef struct 	s_coord
 	int		y;
 	int		z;
 }				t_coord;
+void		ft_init_line_y(int i, int j, int a, t_all *all);
+void		ft_init_line_x(int i, int j, int b, t_all *all);
 
-void		ft_line2(int x1, int y1, int x2, int y2, t_all all);
+void		ft_line2(t_all all);
 
-void		ft_thirth_quadrant(int x1, int y1, int x2, int y2, t_all all);
-void		ft_fourth_quadrant(int x1, int y1, int x2, int y2, t_all all);
-void		ft_second_quadrant(int x1, int y1, int x2, int y2, t_all all);
-void		ft_first_quadrant(int x1, int y1, int x2, int y2, t_all all);
+void		ft_thirth_quadrant(t_all all);
+void		ft_fourth_quadrant(t_all all);
+void		ft_second_quadrant(t_all all);
+void		ft_first_quadrant(t_all all);
 
 
 void		ft_sixth_octant(int x1, int y1, int y2, t_all all);
@@ -87,6 +93,6 @@ void		del_tab_coord(t_coord ***coord);
 void		fill_tab_coord(char ***map, t_coord ****coord);
 void		fill_line_tab_coord(char **map, t_coord **coord);
 void		ft_line(int x1, int x2, int y1, int y2, t_all all);
-int		ft_pixel_put(t_all all);
+int			ft_pixel_put(t_all all);
 
 #endif
