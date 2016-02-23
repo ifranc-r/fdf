@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_tab.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ifranc-r <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/20 18:23:08 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/02/22 13:58:05 by ifranc-r         ###   ########.fr       */
+/*   Updated: 2016/02/23 18:25:23 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void		ft_line2(int x1, int y1, int x2, int y2, t_all all)
 								e = e + dx;
 							}
 							++x1;
-						}	
+						}
 					}
 					else
 					{
@@ -174,7 +174,7 @@ void		ft_line2(int x1, int y1, int x2, int y2, t_all all)
 			else // dy = 0 and dx < 0
 			{
 				while ((x1 = x1 - 1) != x2)
-					mlx_pixel_put(all.mlx, all.win, x1, y1, 0xFFFFFFF);					
+					mlx_pixel_put(all.mlx, all.win, x1, y1, 0xFFFFFFF);
 			}
 		}
 	}
@@ -200,8 +200,6 @@ int		ft_pixel_put(t_all all) // ax + bx
 {
 	int		i;
 	int		j;
-	int		a;
-	int		b;
 
 	i = -1;
 	while (all.coord[++i])
@@ -209,18 +207,38 @@ int		ft_pixel_put(t_all all) // ax + bx
 		j = -1;
 		while (all.coord[i][++j])
 		{
-			a = i + 1;
-			b = j + 1;
-			if (all.coord[a])
+			if (all.coord[i][j + 1])
 			{
-				ft_line2(all.coord[i][j]->x, all.coord[i][j]->z, all.coord[i][b]->x, all->coord[i][b]->z, all);
-				//printf("valeur de x: %d\nvaleur de y: %d\nvaleur de z: %d\n\n ", all.coord[i][j]->x, all.coord[i][j]->y, all.coord[i][j]->z);
-				//printf("valeur de x1: %d\nvaleur de y1: %d\nvaleur de z1: %d\n\n ", all.coord[i][a]->x, all.coord[i][a]->y, all.coord[i][a]->z);
+				ft_line2(all.coord[i][j]->x, all.coord[i][j]->z, all.coord[i][j + 1]->x, all.coord[i][j + 1]->z, all);
+				mlx_pixel_put(all.mlx, all.win, all.coord[i][j + 1]->x, all.coord[i][j + 1]->z, all.coord[i][j + 1]->color);
 			}
-			if (all.coord[i][b])
-				ft_line2(all.coord[i][j]->x, all.coord[i][j]->z, all.coord[a][j]->x, all->coord[a][j]->z, all);
-			mlx_pixel_put(all.mlx, all.win, all.coord[i][j]->x, all.coord[i][j]->z, 0x00FF00);
+			// a = i + 1;
+			// b = j + 1;
+			// if (all.coord[a])
+			// if (all.coord[i][b])
+			// 	ft_line2(all.coord[i][j]->x, all.coord[i][j]->z, all.coord[i][b]->x, all.coord[i][b]->z, all);
+			// mlx_pixel_put(all.mlx, all.win, all.coord[i][j]->x, all.coord[i][j]->z, 0x00FF00);
 		}
+	}
+
+	i = 0;
+	j = 0;
+	while (all.coord[i][j])
+	{
+		while (all.coord[i] != NULL) // FIXME: segmentation fault lors du parcours chaine
+		{
+			printf("Boucle - i vaut : %d j vaut : %d\n", i, j);
+			if (all.coord[i + 1] != NULL)
+			{
+				printf("Condition - i vaut : %d j vaut : %d\n", i, j);
+				ft_line2(all.coord[i][j]->x, all.coord[i][j]->z, all.coord[i + 1][j]->x, all.coord[i + 1][j]->z, all);
+			}
+			i++;
+			if (all.coord[i] == NULL)
+				ft_putendl("STOP");
+		}
+		i = 0;
+		j++;
 	}
 	return (1);
 }
