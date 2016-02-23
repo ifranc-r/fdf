@@ -12,25 +12,187 @@
 
 #include "fdf.h"
 
-void		ft_line(t_all *all)
+void		ft_line2(int x1, int y1, int x2, int y2, t_all all)
 {
+	int dx;
+	int dy;
+	int	e;
 
-	all->line.dx = all->line.x2 - all->line.x1;
-	all->line.dy = all->line.y2 - all->line.y1;
-	if (all->line.dx != 0)
+	dx = x2 - x1;
+	dy = y2 - y1;
+	if (dx != 0)
 	{
-		if (all->line.dx > 0)
+		if (dx > 0)
 		{
-			ft_first_arc(all);
+			if (dy != 0)
+			{
+				if (dy > 0)
+				{
+					if (dx >= dy)
+					{
+						e = dx;
+						dx = e * 2;
+						dy = dy * 2;
+						while (x1 != x2)
+						{
+							mlx_pixel_put(all.mlx, all.win, x1, y1, 0xFFFFFFF);
+							if ((e = e - dy) < 0)
+							{
+								y1 = y1 + 1;
+								e = e + dx;
+							}
+							++x1;
+						}	
+					}
+					else
+					{
+						e = dy;
+						dy = e * 2;
+						dx = dx * 2;
+						while (++y1 != y2)
+						{
+							mlx_pixel_put(all.mlx, all.win, x1, y1, 0xFFFFFFF);
+							if ((e = e - dx) < 0)
+							{
+								x1 = x1 + 1;
+								e = e + dy;
+							}
+						}
+					}
+				}
+				else
+				{
+					if (dx >= -dy)
+					{
+						e = dx;
+						dx = e * 2;
+						dy = dy * 2;
+						while ((x1 = x1 + 1) != x2)
+						{
+							mlx_pixel_put(all.mlx, all.win, x1, y1, 0xFFFFFFF);
+							if ((e = e + dy) < 0)
+							{
+								y1 = y1 - 1;
+								e = e + dx;
+							}
+						}
+					}
+					else
+					{
+						e = dy;
+						dy = e * 2;
+						dx = dx * 2;
+						while ((y1 = y1 - 1) != y2)
+						{
+							mlx_pixel_put(all.mlx, all.win, x1, y1, 0xFFFFFFF);
+							if ((e = e + dx) < 0)
+							{
+								x1 = x1 + 1;
+								e = e + dy;
+							}
+						}
+					}
+				}
+			}
+			else
+			{
+				while ((x1 = x1 + 1) != x2)
+					mlx_pixel_put(all.mlx, all.win, x1, y1, 0xFFFFFFF);
+			}
 		}
 		else
 		{
-			ft_second_arc(all);
+			if ((dy = y2 - y1) != 0)
+			{
+				if (dy > 0)
+				{
+					if (-dx >= dy)
+					{
+						e = dx;
+						dx = e * 2;
+						dy = dy * 2;
+						while ((x1 = x1 - 1) != x2)
+						{
+							mlx_pixel_put(all.mlx, all.win, x1, y1, 0xFFFFFFF);
+							if ((e = e + dy) != 0)
+							{
+								y1 = y1 + 1;
+								e = e + dx;
+							}
+						}
+					}
+					else
+					{
+						e = dy;
+						dy = e * 2;
+						dx = dx * 2;
+						while ((y1 = y1 + 1) != y2)
+						{
+							mlx_pixel_put(all.mlx, all.win, x1, y1, 0xFFFFFFF);
+							if ((e = e + dx) != 0)
+							{
+								x1 = x1 - 1;
+								e = e + dy;
+							}
+						}
+					}
+				}
+				else
+				{
+					if (dx <= dy)
+					{
+						e = dx;
+						dx = e * 2;
+						dy = dy * 2;
+						while ((x1  = x1 - 1) != x2)
+						{
+							mlx_pixel_put(all.mlx, all.win, x1, y1, 0xFFFFFFF);
+							if ((e = e - dy) >= 0)
+							{
+								y1 = y1 - 1;
+								e = e + dx;
+							}
+						}
+					}
+					else
+					{
+						e = dy;
+						dy = e * 2;
+						dx = dx * 2;
+						while ((y1  = y1 - 1) != y2)
+						{
+							mlx_pixel_put(all.mlx, all.win, x1, y1, 0xFFFFFFF);
+							if ((e = e - dx) >= 0)
+							{
+								x1 = x1 - 1;
+								e = e + dy;
+							}
+						}
+					}
+				}
+			}
+			else // dy = 0 and dx < 0
+			{
+				while ((x1 = x1 - 1) != x2)
+					mlx_pixel_put(all.mlx, all.win, x1, y1, 0xFFFFFFF);					
+			}
 		}
 	}
-	else // all->line.dx = 0
+	else // dx = 0
 	{
-		ft_others_cond(all);
+		if ((dy = y2 - y1) != 0)
+		{
+			if (dy > 0)
+			{
+				while ((y1 = y1 + 1) != y2)
+					mlx_pixel_put(all.mlx, all.win, x1, y1, 0xFFFFFFF);
+			}
+			else // dy < 0 and dx = 0
+			{
+				while ((y1 = y1 - 1) != y2)
+					mlx_pixel_put(all.mlx, all.win, x1, y1, 0xFFFFFFF);
+			}
+		}
 	}
 }
 
@@ -51,14 +213,12 @@ int		ft_pixel_put(t_all all) // ax + bx
 			b = j + 1;
 			if (all.coord[a])
 			{
-				ft_init_line_y(i, j, a, &all);
-				ft_line(&all);
+				ft_line2(all.coord[i][j]->x, all.coord[i][j]->z, all.coord[i][b]->x, all->coord[i][b]->z, all);
 				//printf("valeur de x: %d\nvaleur de y: %d\nvaleur de z: %d\n\n ", all.coord[i][j]->x, all.coord[i][j]->y, all.coord[i][j]->z);
 				//printf("valeur de x1: %d\nvaleur de y1: %d\nvaleur de z1: %d\n\n ", all.coord[i][a]->x, all.coord[i][a]->y, all.coord[i][a]->z);
 			}
 			if (all.coord[i][b])
-				ft_init_line_x(i, j, b, &all);
-				ft_line(&all);
+				ft_line2(all.coord[i][j]->x, all.coord[i][j]->z, all.coord[a][j]->x, all->coord[a][j]->z, all);
 			mlx_pixel_put(all.mlx, all.win, all.coord[i][j]->x, all.coord[i][j]->z, 0x00FF00);
 		}
 	}
