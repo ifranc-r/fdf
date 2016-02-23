@@ -6,7 +6,7 @@
 #    By: ifranc-r <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/20 18:39:07 by ifranc-r          #+#    #+#              #
-#    Updated: 2016/02/22 21:55:06 by ifranc-r         ###   ########.fr        #
+#    Updated: 2016/02/23 15:20:44 by ifranc-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC = ./srcs/main.c \
 	srcs/draw/bresenham.c \
 	srcs/draw/ft_init_bres.c \
 	srcs/draw/ft_octant.c \
+	srcs/draw/ft_arc.c \
 	srcs/mlx/mlx.c
 
 FLAGS = -Wall -Wextra -Werror
