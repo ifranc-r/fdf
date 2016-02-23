@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+         #
+#    By: ifranc-r <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2016/02/02 11:11:02 by ifranc-r          #+#    #+#              #
-#    Updated: 2016/02/19 13:52:31 by aramanan         ###   ########.fr        #
+#    Created: 2016/02/20 18:39:07 by ifranc-r          #+#    #+#              #
+#    Updated: 2016/02/23 15:20:44 by ifranc-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,11 @@ SRC = ./srcs/main.c \
 	srcs/error/error.c \
 	srcs/map/map.c \
 	srcs/map/content.c \
+	srcs/draw/draw_tab.c \
+	srcs/draw/bresenham.c \
+	srcs/draw/ft_init_bres.c \
+	srcs/draw/ft_octant.c \
+	srcs/draw/ft_arc.c \
 	srcs/mlx/mlx.c
 
 FLAGS = -Wall -Wextra -Werror
@@ -41,12 +46,12 @@ $(NAME):
 	@gcc -o $(NAME) $(OBJS) $(LIB)
 
 clean:
-	@make clean -C libft/
 	@rm -rf $(OBJS)
+	@make clean -C libft/
 
 fclean: clean
-	@make fclean -C libft/
 	@rm -rf $(NAME)
+	@make fclean -C libft/
 
 re: fclean all
 	@make re -C libft/

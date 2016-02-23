@@ -6,7 +6,11 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 15:39:41 by ifranc-r          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2016/02/22 20:21:53 by aramanan         ###   ########.fr       */
+=======
+/*   Updated: 2016/02/20 19:34:27 by ifranc-r         ###   ########.fr       */
+>>>>>>> origin/try
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +23,7 @@
 # include <fcntl.h>
 # include <errno.h>
 # include "../libft/libft.h"
+# include <math.h>
 # define BUFF_SIZE 1024
 # define PURPLE 0xCC00CC
 # define YELLOW 0xD1C518
@@ -29,11 +34,23 @@ typedef struct	s_fdf
 	int		mov_y;
 }				t_fdf;
 
+typedef struct s_line
+{
+	int y2;
+	int y1;
+	int x2;
+	int x1;
+	int dx;
+	int dy;
+	int e;
+}				t_line;
+
 typedef struct 	s_all
 {
 	void			*mlx;
 	void			*win;
 	struct s_coord	***coord;
+	struct s_line	line;
 }				t_all;
 
 typedef struct 	s_coord
@@ -44,6 +61,29 @@ typedef struct 	s_coord
 	int		color;
 	int		value;
 }				t_coord;
+void		ft_init_line_y(int i, int j, int a, t_all *all);
+void		ft_init_line_x(int i, int j, int b, t_all *all);
+
+void		ft_line(t_all *all);
+
+void		ft_first_arc(t_all *all);
+void		ft_second_arc(t_all *all);
+void		ft_others_cond(t_all *all);
+
+void		ft_thirth_quadrant(t_all *all);
+void		ft_fourth_quadrant(t_all *all);
+void		ft_second_quadrant(t_all *all);
+void		ft_first_quadrant(t_all *all);
+
+
+void		ft_sixth_octant(int x1, int y1, int y2, t_all *all);
+void		ft_thirth_octant(int x1, int y1, int y2, t_all *all);
+void		ft_seventh_octant(int x1, int y1, int y2, t_all *all);
+void		ft_second_octant(int x1, int y1, int y2, t_all *all);
+void		ft_first_octant(int x1, int y1, int x2, t_all *all);
+
+void		ft_init_e_x(t_line line);
+void		ft_init_e_y(t_line line);
 
 void		error_dir(char *file);
 void		error_file(char *file);
@@ -64,5 +104,6 @@ t_coord		**init_line_coord(char **map, t_coord **lbcoord);
 void		del_tab_coord(t_coord ***coord);
 void		fill_tab_coord(char ***map, t_coord ****coord);
 void		fill_line_tab_coord(char **map, t_coord **coord);
+int			ft_pixel_put(t_all all);
 
 #endif

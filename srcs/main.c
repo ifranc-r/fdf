@@ -6,7 +6,11 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 11:58:19 by ifranc-r          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2016/02/23 12:41:56 by aramanan         ###   ########.fr       */
+=======
+/*   Updated: 2016/02/20 19:29:31 by ifranc-r         ###   ########.fr       */
+>>>>>>> origin/try
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +29,7 @@ int		main(int argc, char **argv)
 	t_all		all;
 	char		***map;
 	int			i;
-	int			j;
+//	int			j;
 
 	if (argc != 2)
 	{
@@ -33,7 +37,8 @@ int		main(int argc, char **argv)
 		all.coord = init_tab_coord(map);
 		init_mlx(&all);
 		i = -1;
-		while (all.coord[++i])
+		ft_pixel_put(all);
+/*		while (all.coord[++i])
 		{
 			j = -1;
 			while (all.coord[i][++j])
@@ -41,7 +46,7 @@ int		main(int argc, char **argv)
 				printf("valeur de x: %d\nvaleur de y: %d\nvaleur de z: %d\n\n ", all.coord[i][j]->x, all.coord[i][j]->y, all.coord[i][j]->z);
 				mlx_pixel_put(all.mlx, all.win, all.coord[i][j]->x, all.coord[i][j]->z, all.coord[i][j]->color);
 			}
-		}
+		}*/
 		// fd = open(argv[1], O_RDONLY);
 		// map = read_map(fd);
 		// init_mlx(&all);
