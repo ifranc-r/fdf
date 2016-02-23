@@ -27,7 +27,7 @@ SRC = ./srcs/main.c \
 	srcs/draw/draw_tab.c \
 	srcs/draw/bresenham.c \
 	srcs/draw/ft_init_bres.c \
-	srcs/draw/ft_init2_bres.c \
+	srcs/draw/ft_octant.c \
 	srcs/mlx/mlx.c
 
 FLAGS = -Wall -Wextra -Werror

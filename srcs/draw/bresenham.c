@@ -34,7 +34,7 @@ void		ft_fourth_quadrant(t_all *all)
 		ft_init_e_x(all->line);
 		while ((all->line.x1 = all->line.x1 + 1) != all->line.x2)
 		{
-			mlx_pixel_put(all.mlx, all.win, all->line.x1, all->line.y1, 0xFFFFFFF);
+			mlx_pixel_put(all->mlx, all->win, all->line.x1, all->line.y1, 0xFFFFFFF);
 			if ((all->line.e = all->line.e + all->line.dy) < 0)
 			{
 				all->line.y1 = all->line.y1 - 1;
@@ -56,7 +56,7 @@ void		ft_second_quadrant(t_all *all)
 		ft_init_e_x(all->line);
 		while ((all->line.x1 = all->line.x1 - 1) != all->line.x2)
 		{
-			mlx_pixel_put(all.mlx, all.win, all->line.x1, all->line.y1, 0xFFFFFFF);
+			mlx_pixel_put(all->mlx, all->win, all->line.x1, all->line.y1, 0xFFFFFFF);
 			if ((all->line.e = all->line.e + all->line.dy) != 0)
 			{
 				all->line.y1 = all->line.y1 + 1;
@@ -78,7 +78,7 @@ void		ft_thirth_quadrant(t_all *all)
 		ft_init_e_x(all->line);
 		while ((all->line.x1  = all->line.x1 - 1) != all->line.x2)
 		{
-			mlx_pixel_put(all.mlx, all.win, all->line.x1, all->line.y1, 0xFFFFFFF);
+			mlx_pixel_put(all->mlx, all->win, all->line.x1, all->line.y1, 0xFFFFFFF);
 			if ((all->line.e = all->line.e - all->line.dy) >= 0)
 			{
 				all->line.y1 = all->line.y1 - 1;

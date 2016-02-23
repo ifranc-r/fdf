@@ -58,19 +58,19 @@ typedef struct 	s_coord
 void		ft_init_line_y(int i, int j, int a, t_all *all);
 void		ft_init_line_x(int i, int j, int b, t_all *all);
 
-void		ft_line2(t_all all);
+void		ft_line2(t_all *all);
 
-void		ft_thirth_quadrant(t_all all);
-void		ft_fourth_quadrant(t_all all);
-void		ft_second_quadrant(t_all all);
-void		ft_first_quadrant(t_all all);
+void		ft_thirth_quadrant(t_all *all);
+void		ft_fourth_quadrant(t_all *all);
+void		ft_second_quadrant(t_all *all);
+void		ft_first_quadrant(t_all *all);
 
 
-void		ft_sixth_octant(int x1, int y1, int y2, t_all all);
-void		ft_thirth_octant(int x1, int y1, int y2, t_all all);
-void		ft_seventh_octant(int x1, int y1, int y2, t_all all);
-void		ft_second_octant(int x1, int y1, int y2, t_all all);
-void		ft_first_octant(int x1, int y1, int x2, t_all all);
+void		ft_sixth_octant(int x1, int y1, int y2, t_all *all);
+void		ft_thirth_octant(int x1, int y1, int y2, t_all *all);
+void		ft_seventh_octant(int x1, int y1, int y2, t_all *all);
+void		ft_second_octant(int x1, int y1, int y2, t_all *all);
+void		ft_first_octant(int x1, int y1, int x2, t_all *all);
 
 void		ft_init_e_x(t_line line);
 void		ft_init_e_y(t_line line);

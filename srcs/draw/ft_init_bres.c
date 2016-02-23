@@ -14,54 +14,22 @@
 
 void		ft_init_e_x(t_line line)
 {
-	printf("g\n");
 	line.e = line.dx;
 	line.dx = line.e * 2;
 	line.dy = line.dy * 2;
 }
+
 void		ft_init_e_y(t_line line)
 {
-	printf("h\n");
 	line.e = line.dy;
 	line.dy = line.e * 2;
 	line.dx = line.dx * 2;
 }
-void		ft_first_octant(int x1, int y1, int x2, t_all all)
-{
-	while (++x1 != x2)
-	{
-		printf("i\n");
-		mlx_pixel_put(all.mlx, all.win, x1, y1, 0xFFFFFFF);
-		if ((all.line.e = all.line.e - all.line.dy) < 0)
-		{
-			printf("k\n");
-			y1 = y1 + 1;
-			all.line.e = all.line.e + all.line.dx;
-		}
-	}
-}
-void		ft_second_octant(int x1, int y1, int y2, t_all all)
-{
-	while (++y1 != y2)
-	{
-		mlx_pixel_put(all.mlx, all.win, x1, y1, 0xFFFFFFF);
-		if ((all.line.e = all.line.e - all.line.dx) < 0)
-		{
-			x1 = x1 + 1;
-			all.line.e = all.line.e + all.line.dy;
-		}
-	}	
-}
 
-void		ft_seventh_octant(int x1, int y1, int y2, t_all all)
+void		ft_init_line_x(int i, int j, int b, t_all *all)
 {
-	while (--y1 != y2)
-	{
-		mlx_pixel_put(all.mlx, all.win, x1, y1, 0xFFFFFFF);
-		if ((all.line.e = all.line.e + all.line.dx) < 0)
-		{
-			x1 = x1 + 1;
-			all.line.e = all.line.e + all.line.dy;
-		}
-	}	
+	all->line.x1 = all->coord[i][j]->x;
+	all->line.y1 = all->coord[i][j]->z;
+	all->line.x2 = all->coord[i][b]->x;
+	all->line.y2 = all->coord[i][b]->z;
 }

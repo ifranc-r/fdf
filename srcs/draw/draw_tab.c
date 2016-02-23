@@ -32,11 +32,11 @@ void		ft_line2(t_all *all)
 				if (all->line.dy > 0)
 				{
 					printf("d\n");
-					ft_first_quadrant(&all);
+					ft_first_quadrant(all);
 				}
 				else
 				{
-					ft_fourth_quadrant(&all);
+					ft_fourth_quadrant(all);
 				}
 			}
 			else
@@ -51,11 +51,11 @@ void		ft_line2(t_all *all)
 			{
 				if (all->line.dy > 0)
 				{
-					ft_second_quadrant(&all);
+					ft_second_quadrant(all);
 				}
 				else
 				{
-					ft_thirth_quadrant(&all);
+					ft_thirth_quadrant(all);
 				}
 			}
 			else // dy = 0 and all->line.dx < 0
