@@ -25,11 +25,12 @@
 # define YELLOW 0xD1C518
 # define GREEN 0x66CC00
 
-typedef struct	s_fdf
+typedef struct	s_color
 {
-	int		mov_x;
-	int		mov_y;
-}				t_fdf;
+	int		red;
+	int		blue;
+	int 	green;
+}				t_color;
 
 typedef struct s_line
 {
@@ -42,12 +43,23 @@ typedef struct s_line
 	int e;
 }				t_line;
 
+/*typedef struct	s_img
+{
+	void	*img;
+	char	*data;
+	int		bitpx;
+	int		size;
+	int		endian;
+}				t_img;*/
+
 typedef struct 	s_all
 {
 	void			*mlx;
 	void			*win;
 	struct s_coord	***coord;
 	struct s_line	line;
+//	struct s_img	img;
+	struct s_color 	color;
 }				t_all;
 
 typedef struct 	s_coord
@@ -58,6 +70,11 @@ typedef struct 	s_coord
 	int		color;
 	int		value;
 }				t_coord;
+
+/*void		set_color(t_coord *coord, t_all *all);
+void		mlx_image(t_all *all, t_img *img, t_coord *coord);
+int			mlx_hook_mov(int keycode, t_all *all);*/
+int			mlx_funct_key(int keycode, void *mlx);
 
 void		ft_init_line_y(int i, int j, int a, t_all *all);
 void		ft_init_line_x(int i, int j, int b, t_all *all);

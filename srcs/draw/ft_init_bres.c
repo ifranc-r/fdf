@@ -28,10 +28,10 @@ void		ft_init_e_y(t_line line)
 
 void		ft_init_line_x(int i, int j, int b, t_all *all)
 {
-	all->line.x1 = all->coord[i][j]->x;
-	all->line.y1 = all->coord[i][j]->z;
-	all->line.x2 = all->coord[i][b]->x;
-	all->line.y2 = all->coord[i][b]->z;
+	all->line.x1 /* * (all->line.end_x % size_map) */= all->coord[i][j]->x;
+	all->line.y1 /* * (all->line.end_x % size_map) */= all->coord[i][j]->z;
+	all->line.x2 /* * (all->line.end_x % size_map) */= all->coord[i][b]->x;
+	all->line.y2 /* * (all->line.end_x % size_map) */= all->coord[i][b]->z;
 }
 void		ft_init_line_y(int i, int j, int a, t_all *all)
 {

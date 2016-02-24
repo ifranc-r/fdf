@@ -14,6 +14,7 @@
 
 void	init_mlx(t_all *all)
 {
+	//all->img.img = mlx_new_image(all->mlx, 1000, 1000);
 	all->mlx = mlx_init();
-	all->win = mlx_new_window(all->mlx, 1000, 1000, "FDF");
+	all->win = mlx_new_window(all->mlx, WIN_X, WIN_Y, "FDF");
 }

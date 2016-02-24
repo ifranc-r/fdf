@@ -18,6 +18,7 @@ LIB = -L ./libft/ -lft -I ./includes/minilibx_macos/ -lmlx -framework OpenGL\
 	  -framework AppKit
 
 SRC = ./srcs/main.c \
+	srcs/key_hook/mov.c \
 	srcs/coord/coord.c \
 	srcs/coord/fill_coord.c \
 	srcs/parser/parse.c \

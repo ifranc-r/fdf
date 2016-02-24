@@ -59,7 +59,7 @@ int		ft_pixel_put(t_all all) // ax + bx
 			if (all.coord[i][b])
 				ft_init_line_x(i, j, b, &all);
 				ft_line(&all);
-			mlx_pixel_put(all.mlx, all.win, all.coord[i][j]->x, all.coord[i][j]->z, 0x00FF00);
+			mlx_pixel_put(all.mlx, all.win, all.coord[i][j]->x, all.coord[i][j]->z, all.coord[i][j]->color);
 		}
 	}
 	return (1);
