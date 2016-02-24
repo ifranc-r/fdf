@@ -12,7 +12,7 @@
 
 #include "../../includes/fdf.h"
 
-t_coord		*init_coord(int x, int y, int z)
+t_coord		*init_coord(int x, int y, int z, int c)
 {
 	t_coord		*coord;
 
@@ -22,6 +22,7 @@ t_coord		*init_coord(int x, int y, int z)
 		coord->x = x;
 		coord->y = y;
 		coord->z = z;
+		coord->color = c;
 	}
 	return (coord);
 }
@@ -54,11 +55,13 @@ t_coord		**init_line_coord(char **line, t_coord **lbcoord)
 		{
 			if (lbcoord == NULL)
 				lcoord[i] = init_coord(50 + (50 * i), 40 + (40 * i), 440 - \
-					(25 * i));
+					((25 * i) + (extract_value_coord(line[i]) * 10)),\
+						extract_color_coord(line[i]));
 			else
 				lcoord[i] = init_coord((lbcoord[0]->x + 50) + (50 * i), \
 					(lbcoord[0]->y + 40) + (40 * i), (lbcoord[0]->z + 40) \
-						- (25 * i));
+						- ((25 * i) + (extract_value_coord(line[i]) * 10)), \
+							extract_color_coord(line[i]));
 		}
 		lcoord[ncase] = NULL;
 	}

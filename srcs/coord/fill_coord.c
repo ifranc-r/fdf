@@ -47,3 +47,20 @@ t_coord		***init_tab_coord(char ***map)
 	}
 	return (coord);
 }
+
+int			extract_color_coord(char *cas)
+{
+	int		value;
+
+	value = ft_atoi(cas);
+	if (value == 0)
+		return (PURPLE);
+	if (value > 0)
+		return (YELLOW);
+	return (GREEN);
+}
+
+int			extract_value_coord(char *cas)
+{
+	return (ft_atoi(cas));
+}

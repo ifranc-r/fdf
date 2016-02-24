@@ -43,10 +43,10 @@ void		ft_seventh_octant(int x1, int y1, int y2, t_all *all)
 	while (--y1 != y2)
 	{
 		mlx_pixel_put(all->mlx, all->win, x1, y1, 0xFFFFFFF);
-		if ((all->line.e = all->line.e + all->line.dx) < 0)
+		if ((all->line.e = all->line.e - all->line.dx) < 0)
 		{
 			x1 = x1 + 1;
-			all->line.e = all->line.e + all->line.dy;
+			all->line.e = all->line.e - all->line.dy;
 		}
 	}	
 }
