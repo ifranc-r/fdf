@@ -45,21 +45,24 @@ t_coord		**init_line_coord(char **line, t_coord **lbcoord)
 	int		ncase;
 	t_coord	**lcoord;
 	int		i;
+	int 	ratio;
 
 	ncase = nbcase(line);
+	//ratio = WIN_X % ncase;
 	lcoord = NULL;
 	if ((lcoord = (t_coord**)malloc(sizeof(t_coord*) * (ncase + 1))))
 	{
+	//	lcoord->end_x = ncase;
 		i = -1;
 		while (++i < ncase)
 		{
 			if (lbcoord == NULL)
-				lcoord[i] = init_coord(50 + (50 * i), 40 + (40 * i), 440 - \
+				lcoord[i] = init_coord((50 * i), (40 * i), 440 - \
 					((25 * i) + (extract_value_coord(line[i]) * 10)),\
 						extract_color_coord(line[i]));
 			else
 				lcoord[i] = init_coord((lbcoord[0]->x + 50) + (50 * i), \
-					(lbcoord[0]->y + 40) + (40 * i), (lbcoord[0]->z + 40) \
+					((lbcoord[0]->y + 40) + (40 * i)), (lbcoord[0]->z + 40) \
 						- ((25 * i) + (extract_value_coord(line[i]) * 10)), \
 							extract_color_coord(line[i]));
 		}
