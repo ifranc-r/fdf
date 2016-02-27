@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mov.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ifranc-r <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/24 14:46:36 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/02/24 14:46:43 by ifranc-r         ###   ########.fr       */
+/*   Updated: 2016/02/27 15:46:44 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,9 @@
 
 int		mlx_funct_key(int keycode, void *mlx)
 {
-	t_all	*all;
-
-	all = (t_all *)mlx;
 	printf("key event %d\n", keycode);
-	//mlx_hook_mov(keycode, &*all);
 	if (keycode == 53)
-		exit((int)all->mlx);
+		exit((int)mlx);
 	return (0);
 }
 

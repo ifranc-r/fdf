@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 15:39:41 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/02/20 19:34:27 by ifranc-r         ###   ########.fr       */
+/*   Updated: 2016/02/27 16:32:17 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 # define PURPLE 0xCC00CC
 # define YELLOW 0xD1C518
 # define GREEN 0x66CC00
+# define RATIO_X 40
+# define RATIO_SOMMET 10
 
 typedef struct	s_color
 {

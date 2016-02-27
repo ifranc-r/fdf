@@ -6,19 +6,19 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 11:58:19 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/02/20 19:29:31 by ifranc-r         ###   ########.fr       */
+/*   Updated: 2016/02/27 15:46:17 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int		mlx_funct_key(int keycode, void *mlx)
-{
-	printf("key event %d\n", keycode);
-	if (keycode == 53)
-		exit((int)mlx);
-	return (0);
-}
+// int		mlx_funct_key(int keycode, void *mlx)
+// {
+// 	printf("key event %d\n", keycode);
+// 	if (keycode == 53)
+// 		exit((int)mlx);
+// 	return (0);
+// }
 
 int		main(int argc, char **argv)
 {

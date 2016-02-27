@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 17:38:01 by aramanan          #+#    #+#             */
-/*   Updated: 2016/02/19 21:23:01 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/27 16:24:14 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ t_coord		**init_line_coord(char **line, t_coord **lbcoord)
 	int		ncase;
 	t_coord	**lcoord;
 	int		i;
-	int 	ratio;
 
 	ncase = nbcase(line);
 	//ratio = WIN_X % ncase;
@@ -57,13 +56,13 @@ t_coord		**init_line_coord(char **line, t_coord **lbcoord)
 		while (++i < ncase)
 		{
 			if (lbcoord == NULL)
-				lcoord[i] = init_coord((50 * i), (40 * i), 440 - \
-					((25 * i) + (extract_value_coord(line[i]) * 10)),\
+				lcoord[i] = init_coord((RATIO_X * i), (35 * i), 600 - \
+					((25 * i) + (extract_value_coord(line[i]) * RATIO_SOMMET)),\
 						extract_color_coord(line[i]));
 			else
-				lcoord[i] = init_coord((lbcoord[0]->x + 50) + (50 * i), \
-					((lbcoord[0]->y + 40) + (40 * i)), (lbcoord[0]->z + 40) \
-						- ((25 * i) + (extract_value_coord(line[i]) * 10)), \
+				lcoord[i] = init_coord((lbcoord[0]->x + RATIO_X) + (RATIO_X * i), \
+					((lbcoord[0]->y + 40) + (40 * i)), (lbcoord[0]->z + 30) \
+						- ((25 * i) + (extract_value_coord(line[i]) * RATIO_SOMMET)), \
 							extract_color_coord(line[i]));
 		}
 		lcoord[ncase] = NULL;
