@@ -16,7 +16,7 @@ void		ft_first_octant(int x1, int y1, int x2, t_all *all)
 {
 	while (++x1 != x2)
 	{
-		mlx_pixel_put(all->mlx, all->win, x1, y1, 0xFFFFFFF);
+		mlx_image(&all, x1, y1, &all->img);
 		if ((all->line.e = all->line.e - all->line.dy) < 0)
 		{
 			y1 = y1 + 1;
@@ -29,7 +29,7 @@ void		ft_second_octant(int x1, int y1, int y2, t_all *all)
 {
 	while (++y1 != y2)
 	{
-		mlx_pixel_put(all->mlx, all->win, x1, y1, 0xFFFFFFF);
+		mlx_image(&all, x1, y1, &all->img);
 		if ((all->line.e = all->line.e - all->line.dx) < 0)
 		{
 			x1 = x1 + 1;
@@ -42,7 +42,7 @@ void		ft_seventh_octant(int x1, int y1, int y2, t_all *all)
 {
 	while (--y1 != y2)
 	{
-		mlx_pixel_put(all->mlx, all->win, x1, y1, 0xFFFFFFF);
+		mlx_image(&all, x1, y1, &all->img);
 		if ((all->line.e = all->line.e - all->line.dx) < 0)
 		{
 			x1 = x1 + 1;
@@ -55,7 +55,7 @@ void		ft_thirth_octant(int x1, int y1, int y2, t_all *all)
 {
 	while ((y1 = y1 + 1) != y2)
 	{
-		mlx_pixel_put(all->mlx, all->win, x1, y1, 0xFFFFFFF);
+		mlx_image(&all, x1, y1, &all->img);
 		if ((all->line.e = all->line.e + all->line.dx) != 0)
 		{
 			x1 = x1 - 1;
@@ -68,7 +68,7 @@ void		ft_sixth_octant(int x1, int y1, int y2, t_all *all)
 {
 	while ((y1  = y1 - 1) != y2)
 	{
-		mlx_pixel_put(all->mlx, all->win, x1, y1, 0xFFFFFFF);
+		mlx_image(&all, x1, y1, &all->img);
 		if ((all->line.e = all->line.e - all->line.dx) >= 0)
 		{
 			x1 = x1 - 1;

@@ -20,6 +20,8 @@
 # include <errno.h>
 # include "../libft/libft.h"
 # include <math.h>
+# define WIN_X 1920
+# define WIN_Y 1080
 # define BUFF_SIZE 1024
 # define PURPLE 0xCC00CC
 # define YELLOW 0xD1C518
@@ -43,14 +45,14 @@ typedef struct s_line
 	int e;
 }				t_line;
 
-/*typedef struct	s_img
+typedef struct	s_img
 {
 	void	*img;
 	char	*data;
 	int		bitpx;
 	int		size;
 	int		endian;
-}				t_img;*/
+}				t_img;
 
 typedef struct 	s_all
 {
@@ -58,7 +60,7 @@ typedef struct 	s_all
 	void			*win;
 	struct s_coord	***coord;
 	struct s_line	line;
-//	struct s_img	img;
+	struct s_img	img;
 	struct s_color 	color;
 }				t_all;
 
@@ -100,6 +102,8 @@ void		ft_first_octant(int x1, int y1, int x2, t_all *all);
 void		ft_init_e_x(t_line line);
 void		ft_init_e_y(t_line line);
 
+static void		mlx_image(t_all *all, int x, int y, t_img *img);
+static void		set_color(t_color *color);
 void		error_dir(char *file);
 void		error_file(char *file);
 void		error_presence_alpha(char ****map, char *file);
