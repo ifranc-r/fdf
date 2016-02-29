@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/24 14:46:36 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/02/27 15:46:44 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/29 15:07:34 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int		mlx_funct_key(int keycode, void *mlx)
 {
 	printf("key event %d\n", keycode);
-	if (keycode == 53)
+	if (keycode == 53) // Bouton echap
 		exit((int)mlx);
 	return (0);
 }

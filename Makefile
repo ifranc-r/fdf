@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ifranc-r <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/20 18:39:07 by ifranc-r          #+#    #+#              #
-#    Updated: 2016/02/23 15:20:44 by ifranc-r         ###   ########.fr        #
+#    Updated: 2016/02/29 14:53:55 by aramanan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = fdf
 
 HEAD = includes/minilibx_macos/
 
-LIB = -L ./libft/ -lft -I ./includes/minilibx_macos/ -lmlx -framework OpenGL\
+LIB = -L ./libft/ -lft -L ./includes/minilibx_macos/ -lmlx -framework OpenGL\
 	  -framework AppKit
 
 SRC = ./srcs/main.c \

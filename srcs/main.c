@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 11:58:19 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/02/27 15:46:17 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/29 16:35:40 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,37 @@
 // 		exit((int)mlx);
 // 	return (0);
 // }
+static	void	test_img(t_all all)
+{
+	int		i;
+	int		j;
 
+	i = -1;
+	while (all.coord[++i])
+	{
+		j = -1;
+		while (all.coord[i][++j])
+			mlx_pixel_put_image(all.img, all.coord[i][j]->x, all.coord[i][j]->z, all.coord[i][j]->color);
+	}
+}
 int		main(int argc, char **argv)
 {
 	t_all		all;
-	// int		fd;
 	char		***map;
-	int			i;
-//	int			j;
 
 	if (argc > 1)
 	{
 		map = content_read_file(argv[1]);
 		all.coord = init_tab_coord(map);
 		init_mlx(&all);
-		i = -1;
-		ft_pixel_put(all);
+		// test
+		test_img(all);
+		mlx_put_image_to_window(all.mlx, all.win, all.img, 0, 0);
+		// fin test
+		//ft_pixel_put(all);
 /*		while (all.coord[++i])
 		{
 			j = -1;
-			// TODO: faire apparaitre les points dans la fenetre mlx
 			while (all.coord[i][++j])
 			{
 				printf("valeur de x: %d\nvaleur de y: %d\nvaleur de z: %d\n\n ", all.coord[i][j]->x, all.coord[i][j]->y, all.coord[i][j]->z);

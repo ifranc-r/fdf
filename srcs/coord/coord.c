@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 17:38:01 by aramanan          #+#    #+#             */
-/*   Updated: 2016/02/27 16:24:14 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/29 14:58:49 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,14 @@ t_coord		**init_line_coord(char **line, t_coord **lbcoord)
 	int		i;
 
 	ncase = nbcase(line);
-	//ratio = WIN_X % ncase;
 	lcoord = NULL;
 	if ((lcoord = (t_coord**)malloc(sizeof(t_coord*) * (ncase + 1))))
 	{
-	//	lcoord->end_x = ncase;
 		i = -1;
 		while (++i < ncase)
 		{
 			if (lbcoord == NULL)
-				lcoord[i] = init_coord((RATIO_X * i), (35 * i), 600 - \
+				lcoord[i] = init_coord((RATIO_X * i), (35 * i), 500 - \
 					((25 * i) + (extract_value_coord(line[i]) * RATIO_SOMMET)),\
 						extract_color_coord(line[i]));
 			else

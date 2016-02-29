@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 15:39:41 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/02/27 16:32:17 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/02/29 16:05:14 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define YELLOW 0xD1C518
 # define GREEN 0x66CC00
 # define RATIO_X 40
-# define RATIO_SOMMET 10
+# define RATIO_SOMMET 5
 
 typedef struct	s_color
 {
@@ -45,22 +45,21 @@ typedef struct s_line
 	int e;
 }				t_line;
 
-/*typedef struct	s_img
+typedef struct	s_pic
 {
-	void	*img;
 	char	*data;
-	int		bitpx;
-	int		size;
+	int		bpp;
+	int		sizeline;
 	int		endian;
-}				t_img;*/
+}				t_pic;
 
 typedef struct 	s_all
 {
 	void			*mlx;
 	void			*win;
+	void			*img;
 	struct s_coord	***coord;
 	struct s_line	line;
-//	struct s_img	img;
 	struct s_color 	color;
 }				t_all;
 
@@ -77,7 +76,7 @@ typedef struct 	s_coord
 void		mlx_image(t_all *all, t_img *img, t_coord *coord);
 int			mlx_hook_mov(int keycode, t_all *all);*/
 int			mlx_funct_key(int keycode, void *mlx);
-
+void		mlx_pixel_put_image(void *img, int x, int y, int color);
 void		ft_init_line_y(int i, int j, int a, t_all *all);
 void		ft_init_line_x(int i, int j, int b, t_all *all);
 
