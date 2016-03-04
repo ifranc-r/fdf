@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 15:39:41 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/02/29 16:05:14 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/03/02 19:01:30 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ typedef struct 	s_all
 	void			*mlx;
 	void			*win;
 	void			*img;
+	int				p_img_x;
+	int				p_img_y;
 	struct s_coord	***coord;
 	struct s_line	line;
 	struct s_color 	color;
@@ -77,8 +79,8 @@ void		mlx_image(t_all *all, t_img *img, t_coord *coord);
 int			mlx_hook_mov(int keycode, t_all *all);*/
 int			mlx_funct_key(int keycode, void *mlx);
 void		mlx_pixel_put_image(void *img, int x, int y, int color);
-void		ft_init_line_y(int i, int j, int a, t_all *all);
-void		ft_init_line_x(int i, int j, int b, t_all *all);
+void		ft_init_line_y(int i, int j, t_all *all);
+void		ft_init_line_x(int i, int j, t_all *all);
 
 void		ft_line(t_all *all);
 
@@ -121,5 +123,8 @@ void		del_tab_coord(t_coord ***coord);
 void		fill_tab_coord(char ***map, t_coord ****coord);
 void		fill_line_tab_coord(char **map, t_coord **coord);
 int			ft_pixel_put(t_all all);
+void		mov_picture(t_all *all, int keycode);
+// test
+void	test_img(t_all all);
 
 #endif

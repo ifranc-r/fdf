@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_bres.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ifranc-r <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 19:13:03 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/02/22 19:13:08 by ifranc-r         ###   ########.fr       */
+/*   Updated: 2016/02/29 19:21:55 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,17 @@ void		ft_init_e_y(t_line line)
 	line.dx = line.dx * 2;
 }
 
-void		ft_init_line_x(int i, int j, int b, t_all *all)
+void		ft_init_line_x(int i, int j, t_all *all)
 {
 	all->line.x1 /* * (all->line.end_x % size_map) */= all->coord[i][j]->x;
 	all->line.y1 /* * (all->line.end_x % size_map) */= all->coord[i][j]->z;
-	all->line.x2 /* * (all->line.end_x % size_map) */= all->coord[i][b]->x;
-	all->line.y2 /* * (all->line.end_x % size_map) */= all->coord[i][b]->z;
+	all->line.x2 /* * (all->line.end_x % size_map) */= all->coord[i][j + 1]->x;
+	all->line.y2 /* * (all->line.end_x % size_map) */= all->coord[i][j + 1]->z;
 }
-void		ft_init_line_y(int i, int j, int a, t_all *all)
+void		ft_init_line_y(int i, int j, t_all *all)
 {
 	all->line.x1 = all->coord[i][j]->x;
 	all->line.y1 = all->coord[i][j]->z;
-	all->line.x2 = all->coord[a][j]->x;
-	all->line.y2 = all->coord[a][j]->z;
+	all->line.x2 = all->coord[i + 1][j]->x;
+	all->line.y2 = all->coord[i + 1][j]->z;
 }

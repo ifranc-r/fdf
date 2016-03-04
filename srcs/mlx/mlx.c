@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 20:40:41 by aramanan          #+#    #+#             */
-/*   Updated: 2016/02/29 16:04:11 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/03/01 15:08:01 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	init_mlx(t_all *all)
 	all->mlx = mlx_init();
 	all->win = mlx_new_window(all->mlx, 1500, 1000, "FDF");
 	all->img = mlx_new_image(all->mlx, 1500, 1000);
+	all->p_img_x = -15;
+	all->p_img_y = 0;
 }
 
 void	mlx_pixel_put_image(void *img, int x, int y, int color)

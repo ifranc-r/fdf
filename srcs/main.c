@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 11:58:19 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/02/29 18:27:43 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/03/02 19:01:09 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 // 		exit((int)mlx);
 // 	return (0);
 // }
-static	void	test_img(t_all all)
+void	test_img(t_all all) /* Test dessin dans une image */
 {
 	int		i;
 	int		j;
@@ -44,12 +44,11 @@ int		main(int argc, char **argv)
 		all.coord = init_tab_coord(map);
 		init_mlx(&all);
 		// test
-		g() = all;
 		test_img(all);
-		mlx_put_image_to_window(all.mlx, all.win, all.img, 0, 0);
+		mlx_put_image_to_window(all.mlx, all.win, all.img, all.p_img_x, all.p_img_y);
 		// fin test
-		//ft_pixel_put(all);
-		mlx_key_hook(all.win, mlx_funct_key, all.mlx);
+		// ft_pixel_put(all);
+		mlx_key_hook(all.win, mlx_funct_key, (void*)&all);
 		mlx_loop(all.mlx);
 	}
 	return (EXIT_SUCCESS);

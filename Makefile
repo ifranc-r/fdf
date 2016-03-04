@@ -6,7 +6,7 @@
 #    By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/20 18:39:07 by ifranc-r          #+#    #+#              #
-#    Updated: 2016/02/29 14:53:55 by aramanan         ###   ########.fr        #
+#    Updated: 2016/02/29 19:18:32 by aramanan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,13 @@ SRC = ./srcs/main.c \
 	srcs/draw/ft_arc.c \
 	srcs/mlx/mlx.c
 
-FLAGS = -Wall -Wextra -Werror
+ifdef FLAG
+	ifeq ($(FLAG), no)
+		FLAGS =
+	endif
+else
+	FLAGS = -Wall -Wextra -Werror
+endif
 
 OBJ = $(SRC:.c=.o)
 OBJS = $(notdir $(OBJ))
