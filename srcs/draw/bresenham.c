@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bresenham.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ifranc-r <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 18:46:16 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/02/22 18:47:11 by ifranc-r         ###   ########.fr       */
+/*   Updated: 2016/03/04 15:56:55 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,11 @@ void		ft_first_quadrant(t_all *all)
 {
 	if (all->line.dx >= all->line.dy)
 	{
-		printf("e\n");
 		ft_init_e_x(all->line);
 		ft_first_octant(all->line.x1, all->line.y1, all->line.x2, all);
 	}
 	else
 	{
-		printf("f\n");
 		ft_init_e_y(all->line);
 		ft_second_octant(all->line.x1, all->line.y1, all->line.y2, all);
 	}

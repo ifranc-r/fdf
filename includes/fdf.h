@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 15:39:41 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/03/02 19:01:30 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/03/04 16:10:40 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_line
 	int dx;
 	int dy;
 	int e;
+	int	color;
 }				t_line;
 
 typedef struct	s_pic
