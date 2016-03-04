@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 15:39:41 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/03/04 16:10:40 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/03/04 16:50:20 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ void		init_mlx(t_all *all);
 void		affect_coord(int x, int y, int z, t_coord **coord);
 int			extract_color_coord(char *c);
 int			extract_value_coord(char *c);
-t_coord		*init_coord(int x, int y, int z, int color);
+t_coord		*init_coord(int x, int y, int z, int color, int v);
 t_coord		***init_tab_coord(char ***map);
 t_coord		**init_line_coord(char **map, t_coord **lbcoord);
 void		del_tab_coord(t_coord ***coord);
