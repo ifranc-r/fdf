@@ -6,7 +6,7 @@
 /*   By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/20 18:23:08 by ifranc-r          #+#    #+#             */
-/*   Updated: 2016/03/04 16:40:23 by aramanan         ###   ########.fr       */
+/*   Updated: 2016/03/04 19:27:26 by aramanan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,13 @@ int		ft_pixel_put(t_all all) // ax + bx
 				ft_init_line_y(i, j, &all);
 				ft_line(&all);
 			}
-			if (all.coord[i][b])
+			if (all.coord[i])
 			{
-				ft_init_line_x(i, j, &all);
-				ft_line(&all);
+				if (all.coord[i][b])
+				{
+					ft_init_line_x(i, j, &all);
+					ft_line(&all);
+				}
 			}
 			mlx_pixel_put_image(all.img, all.coord[i][j]->x, all.coord[i][j]->z, all.coord[i][j]->color);
 		}

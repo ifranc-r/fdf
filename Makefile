@@ -6,7 +6,7 @@
 #    By: aramanan <aramanan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/20 18:39:07 by ifranc-r          #+#    #+#              #
-#    Updated: 2016/02/29 19:18:32 by aramanan         ###   ########.fr        #
+#    Updated: 2016/03/04 18:18:39 by aramanan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ all: $(NAME)
 
 $(NAME):
 	@make -C libft/
-	@gcc $(FLAGS) -c $(SRC) -I libft/ -I includes/ -I includes/minilibx_macos/
+	@gcc $(FLAGS) -c $(SRC) -I libft/ -I includes/ -I includes/minilibx_macos/ -g
 	@gcc -o $(NAME) $(OBJS) $(LIB)
 
 clean:
